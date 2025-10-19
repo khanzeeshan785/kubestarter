@@ -9,3 +9,19 @@ spec:
   resources:
     requests:
       storage: 500Mi
+
+
+
+# //////zeeshan
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: local-pvc
+  namespace: nginx
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: local-storage
