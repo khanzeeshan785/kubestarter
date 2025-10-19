@@ -17,4 +17,21 @@ This output shows:
 * The `-o wide` option includes extra details like the Pod IPs and node names.
 
   ===
-so  pod 'nginx-deployment-6f59995b97-d41mm ' running on the tws-cluster-worker  worker node
+so  pod 'nginx-deployment-6f59995b97-d41mm ' running on the tws-cluster-worker  worker node adn this worker node is a docker container
+hence , i will use 
+'docker ps'   
+
+ubuntu@ip-172-31-12-22:~/kubernetes-in-one-shot/nginx$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED        STATUS         PORTS                                          NAMES
+d1d4aaf89f66   kindest/node:v1.31.2   "/usr/local/bin/entr…"   2 hours ago    Up 2 hours     127.0.0.1:40389->6443/tcp                     tws-cluster-control-plane
+5a0588a5df63   kindest/node:v1.31.2   "/usr/local/bin/entr…"   2 hours ago    Up 2 hours     0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp      tws-cluster-worker3
+a7af3d6a73f9   kindest/node:v1.31.2   "/usr/local/bin/entr…"   2 hours ago    Up 2 hours                                                  tws-cluster-worker2
+8f00050a99f3   kindest/node:v1.31.2   "/usr/local/bin/entr…"   2 hours ago    Up 2 hours                                                  tws-cluster-worker
+ubuntu@ip-172-31-12-22:~/kubernetes-in-one-shot/nginx$ docker exec -it 8f000
+
+
+--- so here this   tws-cluster-worker is the worker node whose container id is '8f00050a99f3' , i will enter in this container(orworkernode) 
+using docker exec -it 8f00050a99f3 bash
+ i will go cd mnt/data and this is the path which is mount 
+
+
