@@ -1,0 +1,20 @@
+kubectl get pods -n nginx -o wide
+
+
+NAME                                   READY   STATUS    RESTARTS   AGE    IP        NODE                 NOMINATED NODE   READINESS GATES
+nginx-deployment-6f59995b97-d41mm      1/1     Running   0          4m2s   44.1.19   tws-cluster-worker   <none>           <none>
+nginx-deployment-6f59995b97-mrwj5      1/1     Running   0          4m2s   44.3.20   tws-cluster-worker3  <none>           <none>
+
+
+### 🧠 **Explanation**
+
+This output shows:
+
+* Namespace: `nginx`
+* Two Pods from the deployment `nginx-deployment`
+* Both Pods are **Running** and **Ready (1/1)**
+* Each pod is running on a different node (`tws-cluster-worker` and `tws-cluster-worker3`)
+* The `-o wide` option includes extra details like the Pod IPs and node names.
+
+  ===
+so  pod 'nginx-deployment-6f59995b97-d41mm ' running on the tws-cluster-worker  worker node
